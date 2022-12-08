@@ -1,0 +1,13 @@
+[client]
+log = "C:\\cabs\\awardSpring_python\\logs\\log"
+source = "C:\\transferfiles\\"
+archive = "C:\\transferfiles\\archive\\"
+key = "C:\\keys\\awardspring.pem"
+pattern = "AwardSpring"
+extension = ".csv"
+
+[server]
+host = "spring-ftp1.cloudapp.net"
+user = "2054-us"
+port = 22
+upload_dir = "/home/2054-us/"
