@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env python3
 import datetime
 import os
 import paramiko
@@ -16,10 +16,10 @@ class Server:
         """
         Opens an ssh session for sftp operations.
         """
-
+         
         config = SshConfig()  # get the config file for ssh params
-        Log.log('INFO | SSH configuration loaded.')
-        Log.log('INFO | Starting SSH session...')
+        Log.info('SSH configuration loaded.')
+        Log.info('Starting SSH session.')
         with paramiko.SSHClient() as ssh:
             ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             ssh.connect(
@@ -28,11 +28,11 @@ class Server:
                 pkey=config.pkey,
                 port=config.port
             )
-            Log.log('INFO | SSH connected. Starting SFTP session...')
+            Log.info('SSH connected. Starting SFTP session.')
             with ssh.open_sftp() as sftp:
                 sftp.chdir(cfg['server']['upload_dir'])
                 cwd = sftp.getcwd()
-                Log.log(f'INFO | Attempting to upload to {cwd}...')
+                Log.info(f'Attempting to upload to {cwd}.')
                 sftp.put(
                     localpath=cfg['client']['source'] + Helpers.get_file_name(),
                     remotepath=cfg['server']['upload_dir'] + Helpers.get_file_name(),
@@ -45,7 +45,7 @@ class Server:
         """
         Callback function for SFTP upload method.
         """
-        Log.log(f'INFO | Total bytes transferred: {partial} / {total}')
+        Log.info(f'Total bytes transferred: {partial} / {total}')
 
 
     def upload_exists(list_result):
@@ -54,10 +54,10 @@ class Server:
         """
         filename = Helpers.get_file_name()
         if filename in list_result:
-            Log.log(f'INFO | {filename} was uploaded successfully.')
+            Log.info(f'{filename} was uploaded successfully.')
             return True
         else:
-            Log.log(f'ERROR | {filename} upload could not be verified.')
+            Log.err(f'{filename} upload could not be verified.')
             return False
 
 
@@ -125,16 +125,16 @@ class Helpers:
         filename = Helpers.get_file_name()
         path_to_verify = cfg['client']['source'] + filename
         if os.path.exists(path_to_verify):
-            Log.log('INFO | Found source file! Beginning upload process.')
+            Log.info('Found source file! Beginning upload process.')
             return True
         else:
-            Log.log('ERROR | Source file not found! Exiting program.')
+            Log.err('Source file not found! Exiting program.')
             return False
 
     
     def get_file_name():
         """
-        Gets the name of the current file based on config params
+        Gets the name of the current file based on config params.
         """
         filename = cfg['client']['pattern'] + Helpers.get_date() + cfg['client']['extension']
         return filename
@@ -150,7 +150,7 @@ class Helpers:
 
     def get_date():
         """
-        Gets the current date as a formatted string
+        Gets the current date as a formatted string with leading underscore.
         """
         today = datetime.datetime.today()
         return today.strftime("_%Y%m%d")
@@ -158,7 +158,7 @@ class Helpers:
 
     def archive():
         """
-        Archives the current working file based on config params
+        Archives the current working file based on config params.
         """
         # archive the transferred file after transfer
         filename = Helpers.get_file_name()
@@ -169,13 +169,13 @@ class Helpers:
             shutil.move(source, dest)
             # verify file was archived
             if os.path.exists(dest):
-                Log.log(f'INFO | {filename} was archived.')
+                Log.info(f'{filename} was archived.')
                 return True
             else:
-                Log.log(f'ERROR | {filename} was not archived.')
+                Log.err(f'{filename} was not archived.')
                 return False
         except Exception as err:
-            Log.log(f'ERROR | Archive error: {err}')
+            Log.err(f'Archive error: {err}')
             return False
 
 
