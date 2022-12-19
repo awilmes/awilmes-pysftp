@@ -3,7 +3,7 @@ import unittest
 import os
 
 from .. import myConfig as CFG
-from mod.mod import Helpers, ServerFuncs
+from mod import Helpers, ServerFuncs
 
 class TestHelpers(unittest.TestCase):
     
