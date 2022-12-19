@@ -3,7 +3,7 @@
 Programmer: Andrew Wilmes <awilmes@okstate.edu>
 Date: 16 December 2022
 """
-from mod import Helpers, Log, Server
+from mod import Email, Helpers, Log, Server
 
 
 def main():
@@ -15,13 +15,13 @@ def main():
     list_result = Server.session_put_file()
     # Verify the returned list contains the new file
     result = Server.upload_exists(list_result)
-
     if not result:
         return
     else:
         # Archive source file
         Helpers.archive()
-    
+    Log.info('Emailing log file.')
+    Email.send(Email.create())
     Log.sys('Exiting program.')
 
 

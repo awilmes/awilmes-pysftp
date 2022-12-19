@@ -4,6 +4,9 @@ import os
 import paramiko
 import shutil
 
+from email.message import EmailMessage
+from smtplib import SMTP_SSL
+
 from conf import cfg
 
 
@@ -193,3 +196,45 @@ class SshConfig:
     def get_info(self):
         str_out = f'hostname={self.hostname}\nusername={self.username}\npkey={self.pkey}\nport={self.port}'
         return str_out
+
+
+class Email:
+    """
+    Namespace for email functions
+    """
+
+    def create():
+        """
+        Reads the log file and returns an email message object with its contents
+        """
+        # Read the file and build the message object
+        with open(f"{cfg['client']['log']}{Helpers.get_date()}.log") as lf:
+            msg = EmailMessage()
+            msg.set_content(lf.read()+'\n\nThis message was sent using Python.')
+
+        msg['Subject'] = 'Log - pysftp'
+        msg['From'] = cfg['smtp']['user']
+        msg['To'] = cfg['smtp']['recipient']
+
+        return msg
+
+
+    def send(msg):
+        """
+        Sends the message object passed to this function
+        """
+        # Use SSL port
+        port = cfg['smtp']['port']
+        host = cfg['smtp']['host']
+        user = cfg['smtp']['user']
+        password = cfg['smtp']['password']
+
+        # Create SSL connection object
+        try:
+            ssl = SMTP_SSL(host, port)
+            ssl.login(user, password)
+            ssl.send_message(msg)
+        except Exception as ex:
+            print(ex)
+        finally:
+            ssl.quit()
