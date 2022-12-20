@@ -14,7 +14,7 @@ The program determines the correct file to upload by searching the source direct
 
 `<Name>_<Current Date>.<Extension>`
 
-*Ex: `AwardSpring_20221013.csv`*
+*Example:* `AwardSpring_20221013.csv`
 
 If the target file is not to be found, the program will log the error and exit. Upon a successful execution, the program will move the file to the archive directory found in the config file.
 
