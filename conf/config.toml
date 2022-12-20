@@ -11,3 +11,10 @@ host = ""
 user = ""
 port = ""
 upload_dir = ""
+
+[smtp]
+host = "smtp.gmail.com"
+port = 465
+user = ""
+password = ""
+recipient = ""
