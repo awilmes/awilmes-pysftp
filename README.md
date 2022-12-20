@@ -30,7 +30,7 @@ Example log:
 
 The **config.toml** file is the only file that requires manipulation by the user. The following is an overview of the config parameters:
 
-#### client
+#### [client]
 
 - **log**: The desired path of the log file.
     - *Example (Windows):* `"C:\\path\\to\\log\\dir\\log"`
@@ -52,7 +52,7 @@ The **config.toml** file is the only file that requires manipulation by the user
 - **extension**: Defines the type of the source file.
     - *Example:* `".csv"`
 
-#### server
+#### [server]
 
 - **host**: Defines the hostname of the SFTP server.
     - *Example:* `""`
@@ -67,4 +67,4 @@ The **config.toml** file is the only file that requires manipulation by the user
 - **upload_dir**: The remote directory to upload to.
     - *Example:* `"/home/upload/dir/"`
 
-#### smtp
+#### [smtp]
