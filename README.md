@@ -6,15 +6,22 @@ This automation script uploads a file from a remote server to an SFTP server. In
 
 ## Installation
 
-From a Windows machine, navigate to a local directory and run 
+From a Windows machine, open Command Prompt, navigate to a local directory where you wish to save this project and run: 
 
 `git clone https://github.com/awilmes/awilmes-pysftp.git`
+
+Next, ensure you have Python and Pip installed, then run:
+
+`pip install -r requirements.txt`
+
+This command will install the necessary dependencies for SFTP functions[^1].
+[^1]: This project uses the [Paramiko](https://www.paramiko.org/) Python module for SFTP functions.
 
 ## Setup
 
 On Windows, use Task Scheduler to create a trigger for the script. The trigger action should call "pysftp", the main Python file in this project.
 
-Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes for Windows file paths ("`\\`")
+Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes (`\\`) for Windows file paths.
 
 The config.toml file is pre-configured to use a Gmail account. In order for this feature to work properly, the Gmail account must have an associated App password. App password's can only be created for Gmail account's that have 2FA enabled.
 
