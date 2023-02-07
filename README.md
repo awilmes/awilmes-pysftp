@@ -1,5 +1,8 @@
 # PySFTP
 
+Supports Python 3.11+[^3]
+[^3]: To use an older version of Python, you must install the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module to parse the config.toml file.
+
 ## Description
 
 This automation script uploads a file from a remote server to an SFTP server. In addition, the script emails its run results upon completion.
@@ -19,18 +22,22 @@ This command will install the necessary dependencies for SFTP functions[^1].
 
 ## Setup
 
+### Task Scheduler
+
 On Windows, use Task Scheduler to create a trigger for the script. The trigger action should call "pysftp", the main Python file in this project.
 
-Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes (`\\`) for Windows file paths.
+### Email
 
 The config.toml file is pre-configured to use a Gmail account. In order for this feature to work properly, the Gmail account must have an associated App password. App password's can only be created for Gmail account's that have 2FA enabled.
 
 [Help with App Passwords](https://support.google.com/accounts/answer/185833?hl=en/)
 
-
 ### Config.toml
 
-The **config.toml** file is the only file that requires manipulation by the user. The following is an overview of the config parameters:
+Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes (`\\`) for Windows file paths.
+
+The config.toml[^2] file is the *only* file that requires manipulation by the user. The following is an overview of the config parameters:
+[^2]: The *.toml* extension indicates a TOML file. TOML files are parsed using the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module, which is included in the standard Python library beginning with Python version 3.11.
 
 #### [client]
 
