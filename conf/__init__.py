@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Loads the config file once and only once
 import tomllib
 
