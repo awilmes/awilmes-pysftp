@@ -2,6 +2,23 @@
 
 ## Description
 
+This automation script uploads a file from a remote server to an SFTP server. In addition, the script emails its run results upon completion.
+
+## Installation
+
+From a Windows machine, navigate to a local directory and run 
+
+`git clone https://github.com/awilmes/awilmes-pysftp.git`
+
+## Setup
+
+On Windows, use Task Scheduler to create a trigger for the script. The trigger action should call "pysftp", the main Python file in this project.
+
+Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes for Windows file paths ("`\\`")
+
+The config.toml file is pre-configured to use a Gmail account. In order for this feature to work properly, the Gmail account must have an associated App password. App password's can only be created for Gmail account's that have 2FA enabled.
+
+[Help with App Passwords](https://support.google.com/accounts/answer/185833?hl=en/)
 
 
 ### Config.toml
