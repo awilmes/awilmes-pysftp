@@ -49,10 +49,10 @@ The config.toml[^2] file is the *only* file that requires manipulation by the us
 | Client | extension | Extension of the target file. | String | `".csv"` |
 | Server | host | Hostname of the server. | String | `"ftp.test.net"` |
 | Server | user | Username of the server. | String | `"user"` |
-| Server | port | Port number. | Integer | `20`[^6] |
+| Server | port | Port number. | Integer[^6] | `20` |
 | Server | upload_dir | Server directory to upload to. | String | `"/usr/home/"` |
 | smtp | host | Hostname of smtp server. | String | `"smtp.gmail.com"` |
-| smtp | port | Port number to use. | Integer | `465`[^6] |
+| smtp | port | Port number to use. | Integer[^6] | `465` |
 | smtp | user | Sender address. | String | `"user@gmail.com"` |
 | smtp | password | Sender app password. | String | `"app-p@ssw0rd"` |
 | smtp | recipient | Recipient address. | String | `"recipient@email.net"` |
