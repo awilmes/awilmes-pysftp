@@ -7,7 +7,7 @@ Supports Python 3.11+[^3]
 
 This automation script uploads a file from a remote server to an SFTP server. In addition, the script emails its run results upon completion.
 
-## Installation
+# Installation
 
 From a Windows machine, open Command Prompt, navigate to a local directory where you wish to save this project and run: 
 
@@ -20,19 +20,29 @@ Next, ensure you have Python and Pip installed, then run:
 This command will install the necessary dependencies for SFTP functions[^1].
 [^1]: This project uses the [Paramiko](https://www.paramiko.org/) Python module for SFTP functions.
 
-## Setup
+# Setup
 
-### Task Scheduler
+## Task Scheduler
 
-On Windows, use Task Scheduler to create a trigger for the script. The trigger action should call "pysftp", the main Python file in this project.
+On Windows, use Task Scheduler to create a trigger for the script. The trigger action should call "pysftp", the main Python file in this project:
 
-### Email
+* **Action:** `Start a program`
+
+* **Program/script:** `"C:\Program Files\Python311\python.exe"`
+
+* **Add arguments:** `-m pysftp`
+
+* **Start in:** `C:\path\to\project\dir\`
+
+Configuring the task action in the above manner is the equivalent of running `python -m pysftp` from the command line.
+
+## Email
 
 The config.toml file is pre-configured to use a Gmail account. In order for this feature to work properly, the Gmail account must have an associated App password. App password's can only be created for Gmail account's that have 2FA enabled.
 
 [Help with App Passwords](https://support.google.com/accounts/answer/185833?hl=en/)
 
-### Config.toml
+## Config.toml
 
 Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes (`\\`) for Windows file paths if not using an alternative solution.
 
@@ -50,7 +60,7 @@ The config.toml[^2] file is the *only* file that requires manipulation by the us
 | `[server]` | `host` | Hostname of the server. | String | `"ftp.test.net"` |
 | `[server]` | `user` | Username of the server. | String | `"user"` |
 | `[server]` | `port` | Port number. | Integer[^6] | `20` |
-| `[server]` | `upload_dir` | Server directory to upload to. | String | `"/usr/home/"` |
+| `[server]` | `upload_dir` | Server directory to upload to. | String | `"/home/files/in/"` |
 | `[smtp]` | `host` | Hostname of smtp server. | String | `"smtp.gmail.com"` |
 | `[smtp]` | `port` | Port number to use. | Integer[^6] | `465` |
 | `[smtp]` | `user` | Sender address. | String | `"user@gmail.com"` |
