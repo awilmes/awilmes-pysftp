@@ -1,11 +1,12 @@
 # PySFTP
 
-Supports Python 3.11+[^3]
-[^3]: To use an older version of Python, you must install the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module to parse the config.toml file.
+![](https://img.shields.io/badge/python-^3.11.0-blue)
+
+To use an older version of Python, you must install the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module to parse the config.toml file.
 
 ## Description
 
-This automation script uploads a file from a remote server to an SFTP server. In addition, the script emails its run results upon completion.
+This automation tool uploads a file from a remote server to an SFTP server. In addition, the script emails its run results upon completion.
 
 # Installation
 
