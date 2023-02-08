@@ -59,15 +59,3 @@ The config.toml[^2] file is the *only* file that requires manipulation by the us
 | smtp | user | Sender address. | String | `"user@gmail.com"` |
 | smtp | password | Sender app password. | String | `"app-p@ssw0rd"` |
 | smtp | recipient | Recipient address. | String | `"recipient@email.net"` |
-
-
-
-
-- **port**: The port number used by the transfer protocol.
-    - *Example:* `22`
-        - *NOTE:* The config.toml file does not require integers be wrapped in double quotations.
-
-- **upload_dir**: The remote directory to upload to.
-    - *Example:* `"/home/upload/dir/"`
-
-#### [smtp]
