@@ -40,52 +40,28 @@ The config.toml[^2] file is the *only* file that requires manipulation by the us
 [^2]: The *.toml* extension indicates a TOML file. TOML files are parsed using the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module, which is included in the standard Python library beginning with Python version 3.11.
 
 | Table | Key | Description | Data Type | Example |
-| :-----: | :----- | :------------------------ | :------ | :--------------------------: |
-| Client | log | Path to log file. | String | `"C:\\path\\source\\logs\\log"` |
+| :-----: | :----- | :------------------------ | :------ | --------------------------: |
+| Client | log | Path to log file. | String | `"C:\\path\\source\\logs\\log"`[^4] |
+[^4]: Path cannot be a directory. The script will automatically append the current date and the .log extension to each log file.
 | Client | source | Path to source directory. | String | `"C:\\path\\source\\"` |
 | Client | archive | Path to archive directory. | String | `"C:\\path\\source\\archive\\"` |
-| Client | key | Path to private key file. | String | `"C:\\keys\\privateKey.pem"` |
+| Client | key | Path to private key file. | String | `"C:\\keys\\privateKey.pem"`[^5] |
+[^5]: This project utilizes Paramiko to create an RSA key object from a private key file (.pem). See [Paramiko documention on key handling](https://docs.paramiko.org/en/stable/api/keys.html) for more information.
 | Client | pattern | Name of the target file. | String | `"Filename"` |
 | Client | extension | Extension of the target file. | String | `".csv"` |
-| Server | host | Hostname of the server. | String | `""` |
-| Server | user | Username of the server. | String | `""` |
-| Server | port | Port number. | Integer | `20` |
-| Server | upload_dir | Server directory to upload to. | String | `""` |
+| Server | host | Hostname of the server. | String | `"ftp.test.net"` |
+| Server | user | Username of the server. | String | `"user"` |
+| Server | port | Port number. | Integer | `20`[^6] |
+| Server | upload_dir | Server directory to upload to. | String | `"/usr/home/"` |
 | smtp | host | Hostname of smtp server. | String | `"smtp.gmail.com"` |
-| smtp | port | Port number to use. | Integer | `465` |
-| smtp | user | Sender address. | String | `""` |
-| smtp | password | Sender app password. | String | `""` |
-| smtp | recipient | Recipient address. | String | `""` |
+| smtp | port | Port number to use. | Integer | `465`[^6] |
+[^6]: See [toml documentation](https://toml.io/en/v1.0.0#integer) for more information on data types.
+| smtp | user | Sender address. | String | `"user@gmail.com"` |
+| smtp | password | Sender app password. | String | `"app-p@ssw0rd"` |
+| smtp | recipient | Recipient address. | String | `"recipient@email.net"` |
 
 
 
-- **log**: The desired path of the log file.
-    - *Example (Windows):* `"C:\\path\\to\\log\\dir\\log"`
-        - *NOTE:* The program will automatically append the current date and the .log extension.
-
-- **source**: Path of directory containing the file to upload.
-    - *Example:* `"C:\\path\\to\\source\\dir\\"`
-
-- **archive**: Path of archive directory.
-    - *Example:* `"C:\\path\\to\\archive\\dir\\"`
-
-- **key**: Path to private key file.
-    - *Example:* `"C:\\keys\\key.pem"`
-        - *NOTE:* This project utilizes Paramiko to create an RSA key object from a private key file (.pem). See [Paramiko documention on key handling](https://docs.paramiko.org/en/stable/api/keys.html) for more information.
-
-- **pattern**: Indicates the name of the file to target.
-    - *Example:* `"FileName"`
-
-- **extension**: Defines the type of the source file.
-    - *Example:* `".csv"`
-
-#### [server]
-
-- **host**: Defines the hostname of the SFTP server.
-    - *Example:* `""`
-
-- **user**: Defines the username to log in to the SFTP server with.
-    - *Example:* `""`
 
 - **port**: The port number used by the transfer protocol.
     - *Example:* `22`
