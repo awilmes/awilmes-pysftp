@@ -41,21 +41,21 @@ The config.toml[^2] file is the *only* file that requires manipulation by the us
 
 | Table | Key | Description | Data Type | Example |
 | :-----: | :----- | :------------------------ | :------ | --------------------------: |
-| Client | log | Path to log file. | String | `"C:\\path\\source\\logs\\log"`[^4] |
-| Client | source | Path to source directory. | String | `"C:\\path\\source\\"` |
-| Client | archive | Path to archive directory. | String | `"C:\\path\\source\\archive\\"` |
-| Client | key | Path to private key file. | String | `"C:\\keys\\privateKey.pem"`[^5] |
-| Client | pattern | Name of the target file. | String | `"Filename"` |
-| Client | extension | Extension of the target file. | String | `".csv"` |
-| Server | host | Hostname of the server. | String | `"ftp.test.net"` |
-| Server | user | Username of the server. | String | `"user"` |
-| Server | port | Port number. | Integer[^6] | `20` |
-| Server | upload_dir | Server directory to upload to. | String | `"/usr/home/"` |
-| smtp | host | Hostname of smtp server. | String | `"smtp.gmail.com"` |
-| smtp | port | Port number to use. | Integer[^6] | `465` |
-| smtp | user | Sender address. | String | `"user@gmail.com"` |
-| smtp | password | Sender app password. | String | `"app-p@ssw0rd"` |
-| smtp | recipient | Recipient address. | String | `"recipient@email.net"` |
+| `[client]` | `log` | Path to log file. | String | `"C:\\path\\source\\logs\\log"`[^4] |
+| `[client]` | `source` | Path to source directory. | String | `"C:\\path\\source\\"` |
+| `[client]` | `archive` | Path to archive directory. | String | `"C:\\path\\source\\archive\\"` |
+| `[client]` | `key` | Path to private key file. | String | `"C:\\keys\\privateKey.pem"`[^5] |
+| `[client]` | `pattern` | Name of the target file. | String | `"Filename"` |
+| `[client]` | `extension` | Extension of the target file. | String | `".csv"` |
+| `[server]` | `host` | Hostname of the server. | String | `"ftp.test.net"` |
+| `[server]` | `user` | Username of the server. | String | `"user"` |
+| `[server]` | `port` | Port number. | Integer[^6] | `20` |
+| `[server]` | `upload_dir` | Server directory to upload to. | String | `"/usr/home/"` |
+| `[smtp]` | `host` | Hostname of smtp server. | String | `"smtp.gmail.com"` |
+| `[smtp]` | `port` | Port number to use. | Integer[^6] | `465` |
+| `[smtp]` | `user` | Sender address. | String | `"user@gmail.com"` |
+| `[smtp]` | `password` | Sender app password. | String | `"app-p@ssw0rd"` |
+| `[smtp]` | `recipient` | Recipient address. | String | `"recipient@email.net"` |
 [^4]: Path cannot be a directory. The script will automatically append the current date and the .log extension to each log file.
 [^5]: This project utilizes Paramiko to create an RSA key object from a private key file (.pem). See [Paramiko documention on key handling](https://docs.paramiko.org/en/stable/api/keys.html) for more information.
 [^6]: See [toml documentation](https://toml.io/en/v1.0.0#integer) for more information on data types.
