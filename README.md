@@ -34,12 +34,30 @@ The config.toml file is pre-configured to use a Gmail account. In order for this
 
 ### Config.toml
 
-Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes (`\\`) for Windows file paths.
+Fill the *client*, *server*, and *smtp* fields in the config.toml file, remembering to use double-backslashes (`\\`) for Windows file paths if not using an alternative solution.
 
 The config.toml[^2] file is the *only* file that requires manipulation by the user. The following is an overview of the config parameters:
 [^2]: The *.toml* extension indicates a TOML file. TOML files are parsed using the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module, which is included in the standard Python library beginning with Python version 3.11.
 
-#### [client]
+| Table | Key | Description | Data Type | Example |
+| :-----: | :----- | :------------------------ | :------ | :--------------------------: |
+| Client | log | Path to log file. | String | `"C:\\path\\source\\logs\\log"` |
+| Client | source | Path to source directory. | String | `"C:\\path\\source\\"` |
+| Client | archive | Path to archive directory. | String | `"C:\\path\\source\\archive\\"` |
+| Client | key | Path to private key file. | String | `"C:\\keys\\privateKey.pem"` |
+| Client | pattern | Name of the target file. | String | `"Filename"` |
+| Client | extension | Extension of the target file. | String | `".csv"` |
+| Server | host | Hostname of the server. | String | `""` |
+| Server | user | Username of the server. | String | `""` |
+| Server | port | Port number. | Integer | `20` |
+| Server | upload_dir | Server directory to upload to. | String | `""` |
+| smtp | host | Hostname of smtp server. | String | `"smtp.gmail.com"` |
+| smtp | port | Port number to use. | Integer | `465` |
+| smtp | user | Sender address. | String | `""` |
+| smtp | password | Sender app password. | String | `""` |
+| smtp | recipient | Recipient address. | String | `""` |
+
+
 
 - **log**: The desired path of the log file.
     - *Example (Windows):* `"C:\\path\\to\\log\\dir\\log"`
