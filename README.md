@@ -1,6 +1,16 @@
 # PySFTP
 
-![https://img.shields.io/badge/python-^3.11.0-blue]()
+<picture>
+    <img alt="Python version 3.11.0+" src="https://img.shields.io/badge/python-^3.11.0-brightgreen">
+</picture>
+
+<picture>
+    <img alt="Platform Windows" src="https://img.shields.io/badge/platform-Windows 10-blue">
+</picture>
+
+<picture>
+    <img alt="Platform Windows" src="https://img.shields.io/badge/platform-Windows Server 2016-blueviolet">
+</picture>
 
 To use an older version of Python, you must install the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module to parse the config.toml file.
 
