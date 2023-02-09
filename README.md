@@ -1,8 +1,6 @@
 # PySFTP
 
-<picture>
-    <img alt="Python version 3.11.0+" src="https://img.shields.io/badge/python-^3.11.0-brightgreen">
-</picture>
+[![python version 3.11](https://img.shields.io/badge/python-^3.11.0-brightgreen)](https://www.python.org/downloads/)
 
 To use an older version of Python, you must install the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module to parse the config.toml file.
 
