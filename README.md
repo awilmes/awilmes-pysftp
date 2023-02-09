@@ -40,7 +40,7 @@ Configuring the task action in the above manner is the equivalent of running `py
 
 ## Email
 
-The config.toml file is pre-configured to use a Gmail account. In order for this feature to work properly, the Gmail account must have an associated App password. App password's can only be created for Gmail account's that have 2FA enabled.
+The config.toml file is pre-configured to use a **Gmail** account. In order for this feature to work properly, the Gmail account must have an associated **App password**. App password's can only be created for Gmail account's that have 2FA enabled.
 
 [Help with App Passwords](https://support.google.com/accounts/answer/185833?hl=en/)
 
