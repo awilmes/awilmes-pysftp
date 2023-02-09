@@ -1,7 +1,7 @@
 # PySFTP
 
 [![python version 3.11](https://img.shields.io/badge/python-^3.11.0-brightgreen)](https://www.python.org/downloads/)
-[![platform Windows](https://img.shields.io/badge/python-Windows-blue)](https://github.com/awilmes/awilmes-pysftp)
+[![platform Windows](https://img.shields.io/badge/platform-Windows-blue)](https://github.com/awilmes/awilmes-pysftp)
 
 To use an older version of Python, you must install the [tomlib](https://docs.python.org/3.11/library/tomllib.html) module to parse the config.toml file.
 
